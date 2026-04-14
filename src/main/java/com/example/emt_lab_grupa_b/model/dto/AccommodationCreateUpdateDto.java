@@ -7,17 +7,17 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
-public class AccommodationDto {
-    @NotBlank
+public class AccommodationCreateUpdateDto {
+    @NotBlank(message = "Name is required")
     private String name;
 
-    @NotNull
+    @NotNull(message = "Category is required")
     private AccommodationCategory category;
 
-    @NotNull
+    @NotNull(message = "Host id is required")
     private Long hostId;
 
-    @NotNull
-    @Min(1)
+    @NotNull(message = "No. of rooms is requierd")
+    @Min(value = 0,message = "No. of rooms can not be negative")
     private Integer numRooms;
 }
